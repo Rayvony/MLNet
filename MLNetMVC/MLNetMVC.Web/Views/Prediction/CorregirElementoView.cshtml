@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Corregir Elemento";
+}
+
+<h2>Corregir Elemento</h2>
+
+<div>
+    <h3>Imagen a Corregir</h3>
+    <img src="data:image/jpeg;base64,@ViewBag.ImagePath" alt="Imagen a Corregir" />
+</div>
+
+<form method="post" asp-action="CorregirElemento">
+    <input type="hidden" name="FileName" value="@ViewBag.FileName" />
+    <input type="hidden" name="ImagePath" value="@ViewBag.ImagePath" />
+    <div class="form-group">
+        <label for="Label">Label: </label>
+        <select class="form-control" id="Label" name="Label">
+            <option value="toy">Juguete</option>
+            <option value="food">Comida</option>
+            <option value="appliance">Electrodoméstico</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
