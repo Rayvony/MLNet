@@ -1,42 +1,5 @@
 ﻿@* @{
     ViewBag.Title = "Mostrar Resultados";
-    var predicciones = ViewBag.Predicciones as List<MLNetProyecto.Entidades.VM.ImagePredictionVM>;
-}
-
-<div>
-    <h2>Mostrar Resultados</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>Clasificación</th>
-                <th>Probabilidad</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (predicciones != null)
-            {
-                foreach (var item in predicciones)
-                {
-                    <tr>
-                        <td>
-                            <img src="data:image/jpeg;base64,@item.ImagePath" alt="Imagen Analizada" />
-                        </td>
-                        <td>
-                            @item.PredictedLabelValue
-                        </td>
-                        <td>
-                            @item.Score?.Max()
-                        </td>
-                    </tr>
-                }
-            }
-        </tbody>
-    </table>
-</div>
-
-@{
-    ViewBag.Title = "Mostrar Resultados";
     var predicciones = ViewBag.Predicciones as List<MLNetProyecto.Entidades.EF.ImagePrediction>;
 }
 
@@ -44,20 +7,23 @@
     .thumbnail {
         position: relative;
         display: inline-block;
+        cursor: pointer; /* Cambia el cursor a pointer */
+        color: blue; /* Cambia el color del texto a azul */
+        text-decoration: underline; /* Subraya el texto */
     }
 
-    .thumbnail img {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        width: 200px; /* Tamaño de la miniatura */
-        z-index: 10;
-    }
+        .thumbnail img {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 200px; /* Tamaño de la miniatura */
+            z-index: 10;
+        }
 
-    .thumbnail:hover img {
-        display: block;
-    }
+        .thumbnail:hover img {
+            display: block;
+        }
 </style>
 
 <div>
@@ -67,7 +33,7 @@
             <tr>
                 <th>FileName</th>
                 <th>Clasificación Predicha</th>
-                <th>Prediccion Correcta</th>
+                <th>Predicción Acertada</th>
                 <th>Clasificación Real</th>
                 <th>Probabilidad</th>
             </tr>
@@ -86,7 +52,7 @@
                             @item.PredictedLabelValue
                         </td>
                         <td>
-                            @item.IsCorrect
+                            @((bool)item.IsCorrect ? "Sí" : "No")
                         </td>
                         <td>
                             @item.ImageData.Label
@@ -99,8 +65,7 @@
             }
         </tbody>
     </table>
-</div>
- *@
+</div> *@
 
 @{
     ViewBag.Title = "Mostrar Resultados";
@@ -156,7 +121,7 @@
                             @item.PredictedLabelValue
                         </td>
                         <td>
-                            @((bool)item.IsCorrect ? "Sí" : "No")
+                            @(item.IsCorrect.HasValue ? (item.IsCorrect.Value ? "Sí" : "No") : "Sin Verificar")
                         </td>
                         <td>
                             @item.ImageData.Label

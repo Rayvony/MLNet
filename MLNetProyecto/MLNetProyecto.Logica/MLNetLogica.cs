@@ -60,20 +60,6 @@ namespace MLNetProyecto.Logica
             IDataView testData = _mlContext.Data.LoadFromTextFile<ImageDatumVM>(path: _testTagsTsv, hasHeader: false);
             IDataView predictions = model.Transform(testData);
 
-            // Create an IEnumerable for the predictions for displaying results
-            //IEnumerable<ImagePredictionVM> imagePredictionData = _mlContext.Data.CreateEnumerable<ImagePredictionVM>(predictions, true);
-
-            //Muestro los resultados de lass predicciones
-            //DisplayResults(imagePredictionData);
-
-            //MulticlassClassificationMetrics metrics =
-            //_mlContext.MulticlassClassification.Evaluate(predictions,
-            //    labelColumnName: "LabelKey",
-            //    predictedLabelColumnName: "PredictedLabel");
-
-            //Console.WriteLine($"LogLoss is: {metrics.LogLoss}");
-            //Console.WriteLine($"PerClassLogLoss is: {String.Join(" , ", metrics.PerClassLogLoss.Select(c => c.ToString()))}");
-
             return model;
         }
 
@@ -100,10 +86,8 @@ namespace MLNetProyecto.Logica
 
             string trainFile = _trainTagsTsv;
 
-            // La nueva línea que deseas agregar
             string nuevaLinea = imageFile.FileName;
 
-            // Usar StreamWriter para agregar la nueva línea al final del archivo
             using (StreamWriter sw = new StreamWriter(trainFile, true))
             {
                 sw.WriteLine();
@@ -155,9 +139,9 @@ namespace MLNetProyecto.Logica
             _context.SaveChanges();
 
             string trainFile = _trainTagsTsv;
-            // La nueva línea que deseas agregar
+            
             string nuevaLinea = "\t" + PredictedLabelValue;
-            // Usar StreamWriter para agregar la nueva línea al final del archivo
+
             using (StreamWriter sw = new StreamWriter(trainFile, true))
             {
                 sw.Write(nuevaLinea);
@@ -186,10 +170,8 @@ namespace MLNetProyecto.Logica
 
             string filePath = _trainTagsTsv;
 
-            // La nueva línea que deseas agregar
             string nuevaLinea = "\t" + label;
 
-            // Usar StreamWriter para agregar la nueva línea al final del archivo
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
                 sw.Write(nuevaLinea);
