@@ -14,6 +14,15 @@ body {
     margin: 0;
 }
 
+.card-header {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.card-body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
 
 main {
     flex-grow: 1; /* Empuja el contenido restante hacia abajo */
@@ -96,18 +105,30 @@ main {
     border-color: #616161;
 }
 
-/* Formularios */
+/* Estilos globales para los inputs */
 .form-control {
     background-color: #2a2a2a;
-    color: #e0e0e0;
+    color: #e0e0e0; /* Texto oscuro */
     border: 1px solid #444;
 }
 
-.form-control:focus {
-    background-color: #333;
-    border-color: #bb86fc;
-    color: #e0e0e0;
-}
+    /* Cuando el input está en foco */
+    .form-control:focus {
+        background-color: #333; /* Mantén el fondo oscuro */
+        border-color: #bb86fc; /* Borde en color destacado */
+        color: #e0e0e0; /* Texto oscuro */
+    }
+
+    /* Color del texto placeholder */
+    .form-control::placeholder {
+        color: #bdbdbd; /* Placeholder en tono claro */
+        opacity: 1; /* Asegura visibilidad */
+    }
+
+    /* Placeholder mientras está en foco */
+    .form-control:focus::placeholder {
+        color: #8c8c8c; /* Un color un poco más oscuro para foco */
+    }
 
 /* Links */
 a {

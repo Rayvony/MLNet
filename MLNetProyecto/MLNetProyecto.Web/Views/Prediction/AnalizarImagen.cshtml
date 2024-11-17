@@ -1,4 +1,5 @@
 ﻿@model MLNetProyecto.Entidades.VM.ImagePredictionVM
+
 @{
     ViewBag.Title = "Analizar Imagen";
 }
@@ -18,7 +19,7 @@
         {
             <h3>Resultados</h3>
             <div>
-                <img src="data:image/jpeg;base64,@Model.ImagePath" alt="Imagen Analizada" />
+                <img src="data:image/jpeg;base64,@Model.ImagePath" alt="Imagen Analizada" style="max-width: 300px;"/>
             </div>
             <div>
                 <h4>Clasificación</h4>
