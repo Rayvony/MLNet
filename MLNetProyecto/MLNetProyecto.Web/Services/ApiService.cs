@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using MLNetProyecto.Entidades;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -12,36 +13,34 @@ public class ApiService
     public ApiService(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri("http://127.0.0.1:8000/"); // Reemplazar con la api
+        _httpClient.BaseAddress = new Uri("https://localhost:7268/");
     }
 
-    public async Task<T> GetAsync<T>(string endpoint)
+    public async Task<List<LabelResult>> PostAsync(string endpoint, IFormFile data)
     {
-        var response = await _httpClient.GetAsync(endpoint);
-
-        if (response.IsSuccessStatusCode)
+        using (var content = new MultipartFormDataContent())
         {
-            var jsonResponse = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(jsonResponse);
+            using (var stream = data.OpenReadStream())
+            {
+                var streamContent = new StreamContent(stream);
+                streamContent.Headers.ContentType = new MediaTypeHeaderValue(data.ContentType);
+                content.Add(streamContent, "file", data.FileName);
+
+                var response = await _httpClient.PostAsync(endpoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+                    return JsonSerializer.Deserialize<List<LabelResult>>(jsonResponse, options);
+                }
+
+                // Manejo de errores
+                throw new HttpRequestException($"Error en la petición: {response.StatusCode}");
+            }
         }
-
-        throw new HttpRequestException($"Error en la petición: {response.StatusCode}");
-    }
-
-    public async Task<T> PostAsync<T>(string endpoint, object data)
-    {
-        var jsonContent = JsonSerializer.Serialize(data);
-        var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-        var response = await _httpClient.PostAsync(endpoint, content);
-
-        if (response.IsSuccessStatusCode)
-        {
-            var jsonResponse = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(jsonResponse);
-        }
-
-        // Manejo de errores
-        throw new HttpRequestException($"Error en la petición: {response.StatusCode}");
     }
 }
