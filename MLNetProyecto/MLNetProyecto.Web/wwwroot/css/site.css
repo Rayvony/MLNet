@@ -1,47 +1,121 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+/* Ajuste para el layout completo */
+html, body {
+    height: 100%; /* Asegura que el body tenga una altura total */
+    margin: 0;
 }
 
 body {
-  margin-bottom: 60px;
-  font-family: Roboto,sans-serif;
+    display: flex;
+    flex-direction: column; /* Layout vertical */
+    min-height: 100vh; /* Altura mínima igual al viewport */
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
-/*tab navigation*/
-.login-logout-card .card-header {
-    padding: 0px 0px 12px 0px;
+
+main {
+    flex-grow: 1; /* Empuja el contenido restante hacia abajo */
+    padding-bottom: 20px; /* Espaciado adicional para evitar superposición */
 }
 
-.login-logout-card ul.nav-tabs {
-    margin: 0px 0px -12px 0px;
-}
-
-.login-logout-card li.nav-item {
-    width: 50%;
-}
-
-.login-logout-card a.nav-link {
-    font-size: 1rem;
-    color: #495057;
+/* Ajuste para el footer */
+footer {
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #bdbdbd; /* Texto claro */
     text-align: center;
-    padding: 1rem;
+    padding: 15px 0;
+    border-top: 1px solid #333; /* Borde de separación */
+    position: relative !important; /* Asegura que no esté fijo */
+    bottom: 0;
 }
 
-.login-logout-card .card-body {
-    padding: 10px 20px;
+main {
+    min-height: calc(100vh - 120px); /* Ajusta 120px al tamaño combinado de tu header y footer */
+}
+
+/* Navegación */
+.navbar {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #e0e0e0 !important;
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #bb86fc !important;
+}
+
+/* Contenedor */
+.container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablas */
+.table {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+.table thead th {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
+
+.btn-primary:hover {
+    background-color: #303f9f;
+    border-color: #303f9f;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    border-color: #757575;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+    border-color: #616161;
+}
+
+/* Formularios */
+.form-control {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.form-control:focus {
+    background-color: #333;
+    border-color: #bb86fc;
+    color: #e0e0e0;
+}
+
+/* Links */
+a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d08df5;
+    text-decoration: underline;
 }
