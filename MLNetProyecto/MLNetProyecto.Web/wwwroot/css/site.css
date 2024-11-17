@@ -25,8 +25,8 @@ body {
 }
 
 main {
-    flex-grow: 1; /* Empuja el contenido restante hacia abajo */
-    padding-bottom: 20px; /* Espaciado adicional para evitar superposición */
+    flex: 1; /* Empuja el contenido restante hacia abajo */
+    padding-bottom: 50px; /* Espaciado adicional para evitar superposición */
 }
 
 /* Ajuste para el footer */
@@ -38,6 +38,7 @@ footer {
     border-top: 1px solid #333; /* Borde de separación */
     position: relative !important; /* Asegura que no esté fijo */
     bottom: 0;
+    width: 100%;
 }
 
 main {

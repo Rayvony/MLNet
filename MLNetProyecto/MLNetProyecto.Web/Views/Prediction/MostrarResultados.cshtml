@@ -67,10 +67,8 @@
     </table>
 </div> *@
 
-@{
-    ViewBag.Title = "Mostrar Resultados";
-    var predicciones = ViewBag.Predicciones as List<MLNetProyecto.Entidades.EF.ImagePrediction>;
-}
+@model X.PagedList.IPagedList<MLNetProyecto.Entidades.EF.ImagePrediction>
+@using X.PagedList.Mvc.Core;
 
 <style>
     .thumbnail {
@@ -95,6 +93,8 @@
         }
 </style>
 
+
+
 <div>
     <h2>Mostrar Resultados</h2>
     <table class="table">
@@ -108,30 +108,33 @@
             </tr>
         </thead>
         <tbody>
-            @if (predicciones != null)
+            @if (Model != null && Model.Any())
             {
-                foreach (var item in predicciones)
+                foreach (var item in Model)
                 {
                     <tr>
                         <td class="thumbnail">
                             @item.ImageData.FileName
                             <img src="data:image/jpeg;base64,@item.ImageData.ImagePath" alt="Imagen Analizada" />
                         </td>
-                        <td>
-                            @item.PredictedLabelValue
-                        </td>
-                        <td>
-                            @(item.IsCorrect.HasValue ? (item.IsCorrect.Value ? "Sí" : "No") : "Sin Verificar")
-                        </td>
-                        <td>
-                            @item.ImageData.Label
-                        </td>
-                        <td>
-                            @item.Score
-                        </td>
+                        <td>@item.PredictedLabelValue</td>
+                        <td>@(item.IsCorrect.HasValue ? (item.IsCorrect.Value ? "Sí" : "No") : "Sin Verificar")</td>
+                        <td>@item.ImageData.Label</td>
+                        <td>@item.Score</td>
                     </tr>
                 }
             }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">No hay resultados para mostrar.</td>
+                </tr>
+            }
         </tbody>
     </table>
+</div>
+
+<div>
+    <!-- Controles de paginación -->
+    @Html.PagedListPager(Model, page => Url.Action("MostrarResultados", new { page }))
 </div>
