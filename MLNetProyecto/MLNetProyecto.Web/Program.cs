@@ -4,6 +4,7 @@ using Microsoft.ML;
 using MLNetProyecto.Entidades.EF;
 using MLNetProyecto.Logica;
 using MLNetProyecto.Web.Areas.Identity.Data;
+using MLNetProyecto.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("MLNetProyectoDbContextConnection") ?? throw new InvalidOperationException("Connection string 'MLNetProyectoDbContextConnection' not found.");
@@ -23,6 +24,8 @@ builder.Services.AddScoped<MlnetProyectoContext>();
 builder.Services.AddScoped<MLNetProyectoDbContext>();
 builder.Services.AddScoped<IMLNetLogica, MLNetLogica>();
 builder.Services.AddRazorPages();
+
+builder.Services.AddHttpClient<ApiService>();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {

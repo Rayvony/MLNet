@@ -1,6 +1,8 @@
-﻿@model MLNetProyecto.Entidades.VM.ImagePredictionVM
+﻿@using MLNetProyecto.Entidades
+@model MLNetProyecto.Entidades.VM.ImagePredictionVM
 @{
     ViewBag.Title = "Analizar Imagen";
+    var rekognitionLabels = ViewBag.RekognitionLabels as List<LabelResult>;
 }
 
 <div>
@@ -28,6 +30,26 @@
                 <h4>Probabilidad</h4>
                 <p>@Model.Score?.Max()</p>
             </div>
+            @if (rekognitionLabels != null)
+            {
+                <div>
+                    <h4>Otras clasificaciones asociadas</h4>
+                    @for (int i = 0; i < rekognitionLabels.Count; i++)
+                    {
+                        <span>
+                            @if (i < rekognitionLabels.Count - 1)
+                            {
+                                @rekognitionLabels[i].Name<text>, </text>
+                            }
+                            else
+                            {
+                                @rekognitionLabels[i].Name<text>.</text>
+                            }
+                        </span>
+                    }
+
+                </div>
+            }
             <div>
                 <form method="post" asp-action="AgregarElemento">
                     <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
@@ -42,6 +64,7 @@
                     <button type="submit" class="btn btn-secondary">No es Correcto</button>
                 </form>
             </div>
+
         }
     </div>
 </div>
