@@ -4,6 +4,7 @@
 4. buildear la aplicacion previamente para realizar la correcta instalacion y referencia de los paquetes NuGet
 5. crear el archivo "appsettings.json" en el proyecto web de la solucion con la siguiente configuracion:
 
+```json
 {
   "Logging": {
     "LogLevel": {
@@ -16,3 +17,4 @@
     "MLNetProyectoDbContextConnection": "Server=TU-SERVIDOR;Database=MLNetProyecto;Trusted_Connection=True;Encrypt=False;MultipleActiveResultSets=true;TrustServerCertificate=True"
   }
 }
+```
