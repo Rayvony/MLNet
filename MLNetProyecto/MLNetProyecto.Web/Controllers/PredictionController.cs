@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MLNetProyecto.Entidades;
 using MLNetProyecto.Logica;
+using X.PagedList.Extensions;
 using MLNetProyecto.Web.Models;
 using MLNetProyecto.Web.Services;
+
 
 namespace MLNetProyecto.Web.Controllers
 {
@@ -82,10 +84,15 @@ namespace MLNetProyecto.Web.Controllers
             return RedirectToAction("AnalizarImagen");
         }
 
-        public async Task<ActionResult> MostrarResultados()
+        public async Task<ActionResult> MostrarResultados(int? page)
         {
-            ViewBag.Predicciones = await _mlNetLogica.MostrarResultados();
-            return View();
+            var predicciones = await _mlNetLogica.MostrarResultados();
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+
+            var pagedPredicciones = predicciones.ToPagedList(pageNumber, pageSize);
+
+            return View(pagedPredicciones);
         }
     }
 }

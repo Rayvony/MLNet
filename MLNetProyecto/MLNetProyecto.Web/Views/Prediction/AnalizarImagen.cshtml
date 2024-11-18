@@ -1,34 +1,81 @@
 ﻿@using MLNetProyecto.Entidades
 @model MLNetProyecto.Entidades.VM.ImagePredictionVM
+
 @{
     ViewBag.Title = "Analizar Imagen";
     var rekognitionLabels = ViewBag.RekognitionLabels as List<LabelResult>;
 }
 
-<div>
-    <h2>Analizar Imagen</h2>
-    <form method="post" enctype="multipart/form-data" asp-action="AnalizarImagen">
-        <div class="form-group">
-            <label for="imagen">Imagen</label>
-            <input type="file" class="form-control-file" id="imagen" name="ImageFile" accept="image/*">
-        </div>
-        <button type="submit" class="btn btn-primary">Analizar</button>
-    </form>
-    <br />
-    <div>
-        @if (Model != null)
-        {
-            <h3>Resultados</h3>
-            <div>
-                <img src="data:image/jpeg;base64,@Model.ImagePath" alt="Imagen Analizada" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+    body {
+        background-color: #121212;
+        color: #f8f9fa;
+        margin-bottom: 110px;
+        min-height: 100vh; /* Esto asegura que el body ocupe toda la altura de la ventana */
+    }
+
+    h2, h3, h4 {
+        color: #ffffff; /* Textos importantes en blanco */
+    }
+
+    h6 {
+        color: #6c756b;
+    }
+
+    .form-control-file {
+        max-width: 400px; /* Limitar el ancho del input */
+        margin: 0 auto; /* Centrar el input */
+    }
+
+    .btn-primary:hover, .btn-success:hover, .btn-warning:hover {
+        background-color: #28a745 !important; /* Verde en hover para botones */
+    }
+
+    footer {
+        background-color: #1e1e1e; /* Fondo oscuro */
+        color: #bdbdbd; /* Texto claro */
+        text-align: center;
+        margin-top: 10px;
+        padding: 15px 0;
+        border-top: 1px solid #333; /* Borde de separación */
+        position: relative; /* Relativo para que siga el flujo normal del documento */
+        width: 100%;
+    }
+
+</style>
+
+<div class="container text-center mt-5">
+    @if (Model == null)
+    {
+        <h2 class="mb-4">Analizar Imagen</h2>
+        <form method="post" enctype="multipart/form-data" asp-action="AnalizarImagen" class="mb-4">
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Seleccionar Imagen</label>
+                <input type="file" class="form-control-file" id="imagen" name="ImageFile" accept="image/*">
             </div>
-            <div>
-                <h4>Clasificación</h4>
-                <p>@Model.PredictedLabelValue</p>
-            </div>
-            <div>
-                <h4>Probabilidad</h4>
-                <p>@Model.Score?.Max()</p>
+            <button type="submit" class="btn btn-primary">Analizar</button>
+        </form>
+    }
+    else
+    {
+        <div class="mt-5">
+            <h3 class="mb-4">Resultados</h3>
+            <div class="row justify-content-center align-items-center">
+                <!-- Imagen -->
+                <div class="col-md-4 mb-3">
+                    <img src="data:image/jpeg;base64,@Model.ImagePath" alt="Imagen Analizada" class="img-fluid rounded shadow">
+                </div>
+
+                <!-- Clasificación y Probabilidad -->
+                <div class="col-md-4">
+                    <h4 class="text-success">Clasificación</h4>
+                    <p>@Model.PredictedLabelValue</p>
+                    <h4 class="text-info">Probabilidad</h4>
+                    <p>@Model.Score?.Max()</p>
+                </div>
             </div>
             @if (rekognitionLabels != null)
             {
@@ -39,32 +86,38 @@
                         <span>
                             @if (i < rekognitionLabels.Count - 1)
                             {
-                                @rekognitionLabels[i].Name<text>, </text>
+                                @rekognitionLabels[i].Name
+
+                                <text>, </text>
                             }
                             else
                             {
-                                @rekognitionLabels[i].Name<text>.</text>
+                                @rekognitionLabels[i].Name
+
+                                <text>.</text>
                             }
                         </span>
                     }
 
                 </div>
             }
-            <div>
+        </div>
+
+        <div>
+            <!-- Botones -->
+            <div class="d-flex justify-content-center mt-4 gap-3">
                 <form method="post" asp-action="AgregarElemento">
                     <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
                     <input type="hidden" name="FileName" value="@Model.FileName" />
                     <input type="hidden" name="Score" value="@Model.Score?.Max()" />
                     <input type="hidden" name="PredictedLabelValue" value="@Model.PredictedLabelValue" />
-                    <button type="submit" class="btn btn-primary">Es Correcto</button>
+                    <button type="submit" class="btn btn-success px-4">Es Correcto</button>
                 </form>
                 <form method="post" asp-action="CorregirElementoView">
                     <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
                     <input type="hidden" name="FileName" value="@Model.FileName" />
-                    <button type="submit" class="btn btn-secondary">No es Correcto</button>
+                    <button type="submit" class="btn btn-warning px-4">No es Correcto</button>
                 </form>
             </div>
-
-        }
-    </div>
-</div>
+        </div>
+    }
