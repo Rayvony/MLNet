@@ -1,73 +1,4 @@
-﻿@* @{
-    ViewBag.Title = "Mostrar Resultados";
-    var predicciones = ViewBag.Predicciones as List<MLNetProyecto.Entidades.EF.ImagePrediction>;
-}
-
-<style>
-    .thumbnail {
-        position: relative;
-        display: inline-block;
-        cursor: pointer; /* Cambia el cursor a pointer */
-        color: blue; /* Cambia el color del texto a azul */
-        text-decoration: underline; /* Subraya el texto */
-    }
-
-        .thumbnail img {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            width: 200px; /* Tamaño de la miniatura */
-            z-index: 10;
-        }
-
-        .thumbnail:hover img {
-            display: block;
-        }
-</style>
-
-<div>
-    <h2>Mostrar Resultados</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>FileName</th>
-                <th>Clasificación Predicha</th>
-                <th>Predicción Acertada</th>
-                <th>Clasificación Real</th>
-                <th>Probabilidad</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (predicciones != null)
-            {
-                foreach (var item in predicciones)
-                {
-                    <tr>
-                        <td class="thumbnail">
-                            @item.ImageData.FileName
-                            <img src="data:image/jpeg;base64,@item.ImageData.ImagePath" alt="Imagen Analizada" />
-                        </td>
-                        <td>
-                            @item.PredictedLabelValue
-                        </td>
-                        <td>
-                            @((bool)item.IsCorrect ? "Sí" : "No")
-                        </td>
-                        <td>
-                            @item.ImageData.Label
-                        </td>
-                        <td>
-                            @item.Score
-                        </td>
-                    </tr>
-                }
-            }
-        </tbody>
-    </table>
-</div> *@
-
-@model X.PagedList.IPagedList<MLNetProyecto.Entidades.EF.ImagePrediction>
+﻿@model X.PagedList.IPagedList<MLNetProyecto.Entidades.EF.ImagePrediction>
 @using X.PagedList.Mvc.Core;
 
 <style>
@@ -134,7 +65,26 @@
     </table>
 </div>
 
-<div>
-    <!-- Controles de paginación -->
-    @Html.PagedListPager(Model, page => Url.Action("MostrarResultados", new { page }))
+<div class="pagination-container">
+    @if (Model.HasPreviousPage)
+    {
+        <a href="@Url.Action("MostrarResultados", new { page = Model.PageNumber - 1 })" class="pagination-arrow">
+            &#9664; <!-- Flecha hacia la izquierda -->
+        </a>
+    }
+
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        <a href="@Url.Action("MostrarResultados", new { page = i })"
+           class="pagination-number @(i == Model.PageNumber ? "active-page" : "")">
+            @i
+        </a>
+    }
+
+    @if (Model.HasNextPage)
+    {
+        <a href="@Url.Action("MostrarResultados", new { page = Model.PageNumber + 1 })" class="pagination-arrow">
+            &#9654; <!-- Flecha hacia la derecha -->
+        </a>
+    }
 </div>

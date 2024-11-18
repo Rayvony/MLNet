@@ -1,17 +1,42 @@
-/* Ajuste para el layout completo */
+/* Reset general */
 html, body {
-    height: 100%; /* Asegura que el body tenga una altura total */
+    height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column; /* Asegura que los bordes se incluyan en el tamaño */
 }
 
 body {
     display: flex;
-    flex-direction: column; /* Layout vertical */
+    flex-direction: column;
     min-height: 100vh; /* Altura mínima igual al viewport */
     background-color: #121212;
     color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
-    margin: 0;
+}
+
+main {
+    flex: 1; /* Toma todo el espacio disponible entre el nav y el footer */
+    padding: 20px; /* Espaciado interno */
+    display: flex; /* Asegura un flujo interno correcto */
+    flex-direction: column;
+    padding-bottom: 100px; /* Espaciado suficiente para prevenir superposición */
+}
+
+/* Footer fijo al final */
+footer {
+    background-color: #1e1e1e;
+    color: #bdbdbd;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #333;
+    position: relative; /* Cambia de absolute a relative */
+    width: 100%;
+    margin-top: 20px; /* Espaciado adicional */
+}
+
+main {
+    min-height: calc(100vh - 120px); /* Ajusta 120px al tamaño combinado de tu header y footer */
 }
 
 .card-header {
@@ -22,27 +47,6 @@ body {
 .card-body {
     background-color: #121212;
     color: #e0e0e0;
-}
-
-main {
-    flex: 1; /* Empuja el contenido restante hacia abajo */
-    padding-bottom: 50px; /* Espaciado adicional para evitar superposición */
-}
-
-/* Ajuste para el footer */
-footer {
-    background-color: #1e1e1e; /* Fondo oscuro */
-    color: #bdbdbd; /* Texto claro */
-    text-align: center;
-    padding: 15px 0;
-    border-top: 1px solid #333; /* Borde de separación */
-    position: relative !important; /* Asegura que no esté fijo */
-    bottom: 0;
-    width: 100%;
-}
-
-main {
-    min-height: calc(100vh - 120px); /* Ajusta 120px al tamaño combinado de tu header y footer */
 }
 
 /* Navegación */
@@ -67,6 +71,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Centra el contenido horizontalmente */
 }
 
 /* Tablas */
@@ -74,6 +79,8 @@ main {
     background-color: #1e1e1e;
     color: #e0e0e0;
     border: 1px solid #333;
+    width: 100%; /* Asegura que la tabla no se salga del contenedor */
+    margin-bottom: 20px; /* Espacio para evitar solapamiento */
 }
 
 .table thead th {
@@ -141,3 +148,51 @@ a:hover {
     color: #d08df5;
     text-decoration: underline;
 }
+
+.pagination-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px; /* Espacio adicional para que no choque con el footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacio entre elementos */
+}
+
+/* Estilo para los números de página */
+.pagination-number {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #444; /* Fondo oscuro */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .pagination-number:hover {
+        background-color: #28a745; /* Fondo verde */
+        color: white;
+    }
+
+/* Página activa */
+.active-page {
+    font-weight: bold;
+    background-color: #28a745; /* Fondo verde */
+    color: white;
+}
+
+/* Estilo para las flechas */
+.pagination-arrow {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: #444; /* Fondo oscuro */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .pagination-arrow:hover {
+        background-color: #28a745; /* Fondo verde */
+        color: white;
+    }
