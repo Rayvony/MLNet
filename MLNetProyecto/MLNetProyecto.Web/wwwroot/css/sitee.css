@@ -25,9 +25,6 @@ main {
 
 /* Footer fijo al final */
 footer {
-    position: relative; /* Allow footer to stay within document flow */
-    margin-top: 20px; /* Add spacing from content */
-
     background-color: #1e1e1e;
     color: #bdbdbd;
     text-align: center;
