@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.ML;
-using Microsoft.ML.Data;
+using Microsoft.ML.Transforms;
 using MLNetProyecto.Entidades.EF;
 using MLNetProyecto.Entidades.VM;
-using Tensorflow.Contexts;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace MLNetProyecto.Logica
 {
@@ -53,6 +51,7 @@ namespace MLNetProyecto.Logica
                         .Append(_mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabelValue", "PredictedLabel"))
         .AppendCacheCheckpoint(_mlContext);
 
+            //esto es codigo original
             IDataView trainingData = _mlContext.Data.LoadFromTextFile<ImageDatumVM>(path: _trainTagsTsv, hasHeader: false);
 
             ITransformer model = pipeline.Fit(trainingData);
@@ -104,7 +103,7 @@ namespace MLNetProyecto.Logica
             var imagen = new ImageDatum
             {
                 ImagePath = prediction.ImagePath,
-                Label = prediction.PredictedLabelValue,
+                Label = string.Join(", ", prediction.PredictedLabelValue),
                 FileName = prediction.FileName
             };
 
@@ -112,7 +111,7 @@ namespace MLNetProyecto.Logica
             {
                 ImageData = imagen,
                 Score = prediction.Score?.Max().ToString(),
-                PredictedLabelValue = prediction.PredictedLabelValue
+                PredictedLabelValue = string.Join(", ", prediction.PredictedLabelValue)
             };
 
             await _context.ImageData.AddAsync(imagen);
@@ -126,9 +125,9 @@ namespace MLNetProyecto.Logica
         {
             var imagen = await _context.ImageData.FirstOrDefaultAsync(i => i.FileName == FileName);
 
-            if(imagen == null)
+            if (imagen == null)
                 throw new Exception("la imagen no existe");
-            
+
             var prediccion = await _context.ImagePredictions.FirstOrDefaultAsync(p => p.ImageDataId == imagen.Id);
 
             if (prediccion == null)
@@ -139,7 +138,7 @@ namespace MLNetProyecto.Logica
             _context.SaveChanges();
 
             string trainFile = _trainTagsTsv;
-            
+
             string nuevaLinea = "\t" + PredictedLabelValue;
 
             using (StreamWriter sw = new StreamWriter(trainFile, true))
@@ -165,7 +164,7 @@ namespace MLNetProyecto.Logica
 
             prediccion.IsCorrect = false;
             _context.ImagePredictions.Update(prediccion);
-           
+
             _context.SaveChanges();
 
             string filePath = _trainTagsTsv;
@@ -180,7 +179,7 @@ namespace MLNetProyecto.Logica
 
         public async Task<List<ImagePrediction>> MostrarResultados()
         {
-            
+
             var imagePredictions = await _context.ImagePredictions.Include(ip => ip.ImageData).ToListAsync();
 
             return imagePredictions;

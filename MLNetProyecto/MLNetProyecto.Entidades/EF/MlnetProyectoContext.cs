@@ -31,6 +31,7 @@ public partial class MlnetProyectoContext : DbContext
 
     public virtual DbSet<ImagePrediction> ImagePredictions { get; set; }
 
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<AspNetRole>(entity =>
