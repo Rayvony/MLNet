@@ -9,9 +9,10 @@
 
 <style>
     body {
-        background-color: #121212; /* Fondo oscuro */
-        color: #f8f9fa; /* Texto claro */
+        background-color: #121212;
+        color: #f8f9fa;
         margin-bottom: 110px;
+        min-height: 100vh; /* Esto asegura que el body ocupe toda la altura de la ventana */
     }
 
     h2, h3, h4 {
@@ -38,10 +39,7 @@
         margin-top: 10px;
         padding: 15px 0;
         border-top: 1px solid #333; /* Borde de separación */
-        position: absolute !important; /* Asegura que no esté fijo */
-        bottom: 0;
-        left: 0;
-        right: 0;
+        position: relative; /* Relativo para que siga el flujo normal del documento */
         width: 100%;
     }
 
