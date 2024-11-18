@@ -86,19 +86,24 @@
                         <span>
                             @if (i < rekognitionLabels.Count - 1)
                             {
-                                @rekognitionLabels[i].Name<text>, </text>
+                                @rekognitionLabels[i].Name
+
+                                <text>, </text>
                             }
                             else
                             {
-                                @rekognitionLabels[i].Name<text>.</text>
+                                @rekognitionLabels[i].Name
+
+                                <text>.</text>
                             }
                         </span>
                     }
 
                 </div>
             }
-            <div>
+        </div>
 
+        <div>
             <!-- Botones -->
             <div class="d-flex justify-content-center mt-4 gap-3">
                 <form method="post" asp-action="AgregarElemento">
@@ -116,4 +121,3 @@
             </div>
         </div>
     }
-</div>
