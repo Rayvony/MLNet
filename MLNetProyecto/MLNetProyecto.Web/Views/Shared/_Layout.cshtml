@@ -3,18 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MLNetProyecto.Web</title>
+    <title>@ViewData["Title"] - EcoClassifAI</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/dark-theme.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MLNetProyecto.Web.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body class="d-flex flex-column"  class="d-flex flex-column">
+<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MLNetProyecto.Web</a>
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="logoImg" src="~/img/eeee 1.png" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,14 +26,16 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="flex-grow-1 container"  role="main" class="flex-grow-1 container pb-3">
-        @RenderBody()
-    </main>
+    <div class="container">
+        <main class="pb-3" role="main">
+            @RenderBody()
+        </main>
+    </div>
 
     <!-- Footer -->
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted">       
         <div class="container">
-            <h6>&copy; 2024 - MLNetProyecto.Web -</h6> <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - EcoClassifAI
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

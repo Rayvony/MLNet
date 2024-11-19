@@ -1,45 +1,31 @@
-/* Reset general */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column; /* Asegura que los bordes se incluyan en el tamaño */
-}
-
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Altura mínima igual al viewport */
     background-color: #121212;
     color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
 }
 
-main {
-    flex: 1; /* Toma todo el espacio disponible entre el nav y el footer */
-    padding: 20px; /* Espaciado interno */
-    display: flex; /* Asegura un flujo interno correcto */
-    flex-direction: column;
-    padding-bottom: 100px; /* Espaciado suficiente para prevenir superposición */
-}
-
-/* Footer fijo al final */
 footer {
-    position: relative; /* Allow footer to stay within document flow */
-    margin-top: 20px; /* Add spacing from content */
-
     background-color: #1e1e1e;
     color: #bdbdbd;
-    text-align: center;
-    padding: 15px 0;
-    border-top: 1px solid #333;
-    position: relative; /* Cambia de absolute a relative */
-    width: 100%;
-    margin-top: 20px; /* Espaciado adicional */
 }
 
-main {
-    min-height: calc(100vh - 120px); /* Ajusta 120px al tamaño combinado de tu header y footer */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
 }
 
 .card-header {
@@ -74,7 +60,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto; /* Centra el contenido horizontalmente */
+    margin: 0 auto;  /*Centra el contenido horizontalmente*/ 
 }
 
 /* Tablas */
@@ -154,8 +140,6 @@ a:hover {
 
 .pagination-container {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 50px; /* Espacio adicional para que no choque con el footer */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,7 +179,12 @@ a:hover {
     transition: background-color 0.3s, color 0.3s;
 }
 
-    .pagination-arrow:hover {
-        background-color: #28a745; /* Fondo verde */
-        color: white;
-    }
+.pagination-arrow:hover {
+    background-color: #28a745; /* Fondo verde */
+    color: white;
+}
+
+.logoImg {
+    width: 150px;
+    height: 50px;
+}
