@@ -2,25 +2,73 @@
     ViewBag.Title = "Corregir Elemento";
 }
 
-<h2>Corregir Elemento</h2>
+<style>
+    body {
+        background-color: #121212;
+        color: #f8f9fa;
+        margin-bottom: 110px;
+        min-height: 100vh; /* Esto asegura que el body ocupe toda la altura de la ventana */
+    }
 
-<div>
-    <h3>Imagen a Corregir</h3>
-    <img src="data:image/jpeg;base64,@ViewBag.ImagePath" alt="Imagen a Corregir" />
-</div>
+    h2, h3, h4 {
+        color: #ffffff; /* Textos importantes en blanco */
+    }
 
-<form method="post" asp-action="CorregirElemento">
-    <input type="hidden" name="FileName" value="@ViewBag.FileName" />
-    <input type="hidden" name="ImagePath" value="@ViewBag.ImagePath" />
-    <div class="form-group">
-        <label for="Label">Label: </label>
-        <select class="form-control" id="Label" name="Label">
-            <option value="metal">Metal</option>
-            <option value="papel">Papel</option>
-            <option value="vidrio">Vidrio</option>
-            <option value="plastico">Plastico</option>
-            <option value="organico">Organico</option>
-        </select>
+    h6 {
+        color: #6c756b;
+    }
+
+    .form-control-file {
+        max-width: 400px; /* Limitar el ancho del input */
+        margin: 0 auto; /* Centrar el input */
+    }
+
+    .btn-primary:hover, .btn-success:hover, .btn-warning:hover {
+        background-color: #28a745 !important; /* Verde en hover para botones */
+    }
+
+    footer {
+        background-color: #1e1e1e; /* Fondo oscuro */
+        color: #bdbdbd; /* Texto claro */
+        text-align: center;
+        margin-top: 10px;
+        padding: 15px 0;
+        border-top: 1px solid #333; /* Borde de separación */
+        position: relative; /* Relativo para que siga el flujo normal del documento */
+        width: 100%;
+    }
+
+    .img-fluid {
+        max-width: 400px;
+        height: auto;
+        align-content: center;
+    }
+
+</style>
+
+<div class="container">
+    <h2 class="text-center mb-4">Corregir Elemento</h2>
+
+    <div class="row justify-content-center align-items-center">
+        <!-- Imagen -->
+        <div class="col-md-4 mb-3">
+            <img src="data:image/jpeg;base64,@ViewBag.ImagePath" alt="Imagen a Corregir" class="img-fluid rounded shadow" />
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-</form>
+
+    <form method="post" asp-action="CorregirElemento">
+        <input type="hidden" name="FileName" value="@ViewBag.FileName" />
+        <input type="hidden" name="ImagePath" value="@ViewBag.ImagePath" />
+        <div class="form-group">
+            <label for="Label">Elige la nueva categoría: </label>
+            <select class="form-control" id="Label" name="Label">
+                <option value="metal">Metal</option>
+                <option value="papel">Papel</option>
+                <option value="vidrio">Vidrio</option>
+                <option value="plastico">Plastico</option>
+                <option value="organico">Organico</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Corregir</button>
+    </form>
+</div>
