@@ -20,16 +20,26 @@
             <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Ahorras recursos al reutilizar materiales.</li>
             <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Proteges el medio ambiente al disminuir residuos en vertederos.</li>
         </ul>
+        <div class="d-flex justify-content-center">
+            <img src="~/img/degradacion.jpg" alt="Degradación">
+        </div>
     </section>
 
     <section class="mb-5">
         <h2 class="display-6">¿Cómo funciona?</h2>
-        <ol class="list-unstyled">
-            <li class="mb-2"><i class="bi bi-camera-fill text-primary"></i> Toma una foto de tu residuo.</li>
-            <li class="mb-2"><i class="bi bi-upload text-primary"></i> Súbela a nuestra aplicación.</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Obtén resultados precisos y sugerencias de reciclaje.</li>
-        </ol>
-        <button class="btn btn-primary btn-lg mt-3">¡Prueba ahora!</button>
+        <div class="row">
+            <div class="col-md-6 align-content-center justify-content-center">
+                <ol class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-camera-fill text-primary"></i> Toma una foto de tu residuo.</li>
+                    <li class="mb-2"><i class="bi bi-upload text-primary"></i> Súbela a nuestra aplicación.</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Obtén resultados precisos y sugerencias de reciclaje.</li>
+                </ol>
+                <a class="btn btn-primary btn-lg mt-3" asp-controller="Prediction" asp-action="AnalizarImagen">¡Prueba ahora!</a>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center">
+                <img src="~/img/laptop.jpg" alt="Analizar imagen" class="img-fluid w-75">
+            </div>
+        </div>
     </section>
 
     <section>

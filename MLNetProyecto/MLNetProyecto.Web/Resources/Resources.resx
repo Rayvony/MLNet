@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TituloPapel" xml:space="preserve">
+    <value>Tratamiento de celulosa</value>
+  </data>
+  <data name="IntroPapel" xml:space="preserve">
+    <value>Los materiales de celulosa son derivados de fibras vegetales, principalmente de madera o algodón. Se encuentran en productos como papel, cartón, periódicos, revistas, cajas, y productos de oficina.
+
+¿Por qué reciclar materiales de celulosa?
+
+Ahorro de recursos: Reciclar papel y cartón reduce la tala de árboles.
+
+Menor impacto ambiental: Disminuye el consumo de agua y energía necesarias para producir papel nuevo.
+
+Reducción de residuos: Evita que materiales reutilizables terminen en los vertederos.
+
+Clasificación de materiales de celulosa
+
+Materiales aptos para reciclaje
+Papeles limpios: hojas de oficina, cuadernos sin residuos.
+Cartón seco: cajas de cereal, cajas de envío, cartones corrugados.
+Periódicos y revistas (sin adhesivos plásticos).
+
+Materiales no aptos
+Papeles encerados o plastificados: papel de horno, etiquetas adhesivas.
+Papel con residuos orgánicos: servilletas, pañuelos usados.
+Cartón contaminado: cajas de pizza con restos de grasa.</value>
+  </data>
+  <data name="RecicladoPapel" xml:space="preserve">
+    <value>Clasificar correctamente: Separa papeles y cartones de otros materiales como plásticos o metales.
+
+Limpiar: Retira clips, grapas o adhesivos.
+Asegúrate de que el material no tenga residuos de alimentos.
+
+Reducir volumen: Dobla o aplana cajas de cartón para ahorrar espacio.
+
+Almacenar: Utiliza bolsas de papel o cajas para almacenar el material seco.</value>
+  </data>
+  <data name="CreatividadPapel" xml:space="preserve">
+    <value>Si no tienes acceso a un sistema de reciclaje municipal, puedes reutilizar los materiales de celulosa de forma creativa:
+
+Papel triturado como abono: Mezcla con restos orgánicos para compost.
+
+Manualidades: Usa papel y cartón para proyectos de bricolaje o decoración.
+
+Protección y almacenamiento: Usa papel viejo para envolver objetos frágiles.
+
+Bloques de combustible: Comprime papel húmedo para hacer briquetas que sirvan como combustible.</value>
+  </data>
+  <data name="CuriosidadesPapel" xml:space="preserve">
+    <value>Por cada tonelada de papel reciclado se salvan aproximadamente 17 árboles.
+
+Reciclar una tonelada de papel ahorra hasta 40% del agua utilizada en la fabricación de papel nuevo.
+
+El cartón reciclado puede procesarse hasta 8 veces antes de perder su calidad.</value>
+  </data>
+  <data name="CuriosidadesTitulo" xml:space="preserve">
+    <value>Datos curiosos y motivadores</value>
+  </data>
+  <data name="IntroPapelTitulo" xml:space="preserve">
+    <value>¿Qué son los materiales de celulosa?</value>
+  </data>
+  <data name="RecicladoTitulo" xml:space="preserve">
+    <value>Preparación para el reciclaje</value>
+  </data>
+  <data name="CreatividadTitulo" xml:space="preserve">
+    <value>Alternativas creativas para el hogar</value>
+  </data>
+  <data name="TituloPlastico" xml:space="preserve">
+    <value>Tratamiento de plásticos</value>
+  </data>
+  <data name="IntroPlasticoTitulo" xml:space="preserve">
+    <value>¿Qué son los materiales plásticos?</value>
+  </data>
+  <data name="IntroPlastico" xml:space="preserve">
+    <value>Los plásticos son materiales sintéticos derivados principalmente del petróleo, caracterizados por su versatilidad y bajo costo. Se encuentran en una amplia variedad de productos, como botellas, envases, bolsas, juguetes, y electrodomésticos. Los plásticos más comunes incluyen:
+
+PET (Tereftalato de polietileno): Botellas de agua y refrescos.
+HDPE (Polietileno de alta densidad): Envases rígidos como detergentes o productos lácteos.
+LDPE (Polietileno de baja densidad): Bolsas plásticas y envolturas.
+
+¿Por qué reciclar materiales plásticos?
+
+Ahorro de recursos: El reciclaje de plásticos reduce la dependencia de materias primas vírgenes como el petróleo.
+Menor impacto ambiental: Evita que los plásticos terminen en vertederos o en el océano, donde pueden tardar siglos en degradarse.
+Reducción de emisiones: Reciclar plásticos requiere menos energía que producir nuevos, reduciendo las emisiones de CO₂.
+Materiales aptos para reciclaje
+
+Clasificación de materiales plásticos
+
+Materiales aptos para reciclaje:
+
+Envases de botellas de agua y refrescos (PET).
+Bolsas de supermercado limpias (LDPE).
+Envases rígidos de productos de limpieza (HDPE).
+
+Materiales no aptos:
+
+Plásticos mixtos o compuestos (ej.: blísteres de medicamentos).
+Bolsas contaminadas con restos orgánicos.
+Poliestireno expandido (unicel) en ciertas regiones.</value>
+  </data>
+  <data name="RecicladoPlastico" xml:space="preserve">
+    <value>Clasificar correctamente: Separa los plásticos por tipo y asegúrate de que estén limpios y secos.
+Limpieza: Lava botellas y envases para eliminar restos de alimentos o líquidos.
+Reducir volumen: Aplasta botellas y envases para ahorrar espacio.
+Almacenamiento: Usa bolsas grandes o contenedores separados por tipo de plástico.</value>
+  </data>
+  <data name="CreatividadPlastico" xml:space="preserve">
+    <value>Si no puedes acceder a un sistema de reciclaje:
+
+Manualidades: Crea macetas, lámparas o juguetes reutilizando botellas de plástico.
+Organizadores: Usa envases como contenedores para artículos pequeños.
+Construcción: Usa bolsas plásticas como relleno para crear ecoladrillos.
+Botellas de amor: crealas llenando un envase plástico con desechos como envolturas y paquetes.</value>
+  </data>
+  <data name="CuriosidadesPlastico" xml:space="preserve">
+    <value>Reciclar una tonelada de plásticos puede ahorrar hasta 5.6 metros cúbicos de espacio en basurales.
+
+Los plásticos PET reciclados pueden transformarse en ropa, alfombras, o nuevos envases.
+
+Usar ecoladrillos hechos de plástico reciclado ayuda a reducir la acumulación de desechos plásticos en casa.</value>
+  </data>
+  <data name="TituloVidrio" xml:space="preserve">
+    <value>Tratamiento de vidrios</value>
+  </data>
+  <data name="IntroVidrioTitulo" xml:space="preserve">
+    <value>¿Qué son los materiales de vidrio?</value>
+  </data>
+  <data name="IntroVidrio" xml:space="preserve">
+    <value>El vidrio es un material inorgánico y transparente hecho principalmente de arena de sílice, carbonato de sodio y caliza. Se encuentra en productos como botellas, frascos, ventanas, y vajillas. Es altamente reciclable sin perder su calidad, lo que lo convierte en un material clave para la sostenibilidad.
+
+¿Por qué reciclar materiales de vidrio?
+
+Ahorro de recursos: El reciclaje de vidrio reduce la extracción de materias primas.
+Menor impacto ambiental: Evita que el vidrio termine en vertederos, donde no se degrada.
+Reducción de emisiones: La producción con vidrio reciclado consume menos energía y reduce las emisiones de CO₂.
+Reutilización continua: El vidrio se puede reciclar infinitas veces sin perder calidad.
+
+Clasificación de materiales de vidrio
+
+Materiales aptos para reciclaje:
+
+Botellas de bebidas (transparentes, verdes o ámbar).
+Frascos de alimentos (mermeladas, salsas, etc.).
+Cristal plano no tratado (como el de ventanas).
+
+Materiales no aptos:
+
+Vidrio roto mezclado con materiales contaminantes.
+Cristales especiales (como Pyrex, espejos o cerámicas).
+Vidrio mezclado con plástico o metal, como en focos o parabrisas.</value>
+  </data>
+  <data name="RecicladoVidrio" xml:space="preserve">
+    <value>Clasificar correctamente: Separa el vidrio apto de otros tipos de desechos.
+Limpieza: Lava los envases para eliminar residuos de alimentos o líquidos.
+Reducir volumen: Si es posible, retira tapas o etiquetas de los envases.
+Almacenamiento: Usa contenedores resistentes y separados por color (transparente, verde, ámbar).</value>
+  </data>
+  <data name="CuriosidadesVidrio" xml:space="preserve">
+    <value>Reciclar una botella de vidrio ahorra suficiente energía como para encender una bombilla de 100 vatios durante 4 horas.
+Una tonelada de vidrio reciclado ahorra hasta 315 kg de dióxido de carbono en emisiones.
+El vidrio reciclado puede transformarse en nuevos envases, materiales de construcción o incluso en aislantes térmicos.</value>
+  </data>
+  <data name="TituloMetal" xml:space="preserve">
+    <value>Tratamiento de metales</value>
+  </data>
+  <data name="IntroMetalTitulo" xml:space="preserve">
+    <value>¿Qué son los materiales metálicos?</value>
+  </data>
+  <data name="IntroMetal" xml:space="preserve">
+    <value>Los materiales metálicos son compuestos inorgánicos que se caracterizan por su alta resistencia, maleabilidad y conductividad térmica y eléctrica. Se encuentran en productos como latas de alimentos, bebidas, electrodomésticos, herramientas, y estructuras de construcción. Los metales más comunes en reciclaje incluyen:
+
+Aluminio: Latas de bebidas, papel aluminio.
+Acero: Latas de alimentos, herramientas.
+Cobre: Cables, componentes eléctricos.
+
+¿Por qué reciclar materiales metálicos?
+
+Ahorro de recursos: Reciclar metales reduce la extracción minera y el consumo de recursos naturales.
+Menor impacto ambiental: Evita que metales valiosos terminen en vertederos.
+Reducción de emisiones: La producción con metales reciclados requiere menos energía y emite menos CO₂.
+Reutilización eficiente: Los metales reciclados conservan sus propiedades originales.
+
+Clasificación de materiales metálicos
+
+Materiales aptos para reciclaje:
+
+Latas de bebidas de aluminio.
+Latas de alimentos (acero).
+Tubos y cables metálicos limpios.
+
+Materiales no aptos:
+
+Metales contaminados con grasa o químicos peligrosos.
+Envases metálicos mezclados con plástico o vidrio.
+Pilas o baterías (requieren procesos de reciclaje especiales).</value>
+  </data>
+  <data name="RecicladoMetal" xml:space="preserve">
+    <value>Clasificar correctamente: Separa los metales según su tipo (aluminio, acero, cobre, etc.).
+Limpieza: Lava las latas y envases para eliminar residuos de alimentos o líquidos.
+Reducir volumen: Aplasta las latas de bebidas para ahorrar espacio.
+Almacenamiento: Usa recipientes resistentes para evitar accidentes con bordes cortantes.</value>
+  </data>
+  <data name="CreatividadMetal" xml:space="preserve">
+    <value>Si no tienes acceso a un sistema de reciclaje:
+
+Decoración: Crea adornos o manualidades con latas de aluminio.
+Organización: Usa latas como recipientes para almacenar herramientas o materiales pequeños.
+Construcción: Utiliza piezas metálicas como refuerzos o elementos decorativos en muebles.</value>
+  </data>
+  <data name="CuriosidadesMetal" xml:space="preserve">
+    <value>Reciclar una lata de aluminio ahorra suficiente energía como para hacer funcionar una computadora durante 3 horas.
+El acero reciclado requiere 75% menos energía que la producción de acero nuevo.
+El aluminio puede reciclarse infinitas veces sin perder calidad, y una lata reciclada puede volver al mercado en solo 60 días.</value>
+  </data>
+  <data name="TituloOrganico" xml:space="preserve">
+    <value>Tratamiento de materiales orgánicos</value>
+  </data>
+  <data name="IntroOrganicoTitulo" xml:space="preserve">
+    <value>¿Qué son los materiales orgánicos?</value>
+  </data>
+  <data name="IntroOrganico" xml:space="preserve">
+    <value>Los materiales orgánicos son residuos de origen natural que provienen de plantas, animales o procesos biológicos. Se encuentran principalmente en desechos de alimentos, restos de poda, hojas, cáscaras, y productos biodegradables.
+
+¿Por qué reciclar materiales orgánicos?
+
+Reducción de residuos: Al aprovechar los materiales orgánicos, se disminuye la cantidad de desechos que llegan a vertederos.
+Generación de abono: Estos residuos pueden convertirse en compost, mejorando la calidad del suelo.
+Menor impacto ambiental: Evita la emisión de gases como el metano, producido cuando los residuos orgánicos se descomponen en condiciones inadecuadas.
+Ciclo de vida sostenible: Los residuos orgánicos vuelven al medio ambiente como nutrientes en lugar de desperdicio.
+
+Clasificación de materiales orgánicos
+
+Materiales aptos para compostaje:
+
+Restos de frutas y verduras.
+Cáscaras de huevo.
+Hojas secas y recortes de césped.
+Bolsas de papel y cartón sin tinta.
+
+Materiales no aptos para compostaje:
+
+Carnes, pescados o huesos (dificultan el compostaje por atraer plagas).
+Productos lácteos.
+Aceites y grasas.
+Materiales tratados con químicos (madera pintada, papel plastificado).</value>
+  </data>
+  <data name="RecicladoOrganico" xml:space="preserve">
+    <value>Separar correctamente: Identifica los residuos orgánicos y sepáralos del plástico, metal, vidrio y otros no orgánicos.
+Tamaño reducido: Corta en pedazos pequeños los restos grandes para acelerar la descomposición.
+Almacenamiento adecuado: Usa un recipiente ventilado para evitar malos olores y facilitar la descomposición inicial.
+Humedad y mezcla: Equilibra los materiales húmedos (restos de cocina) y secos (hojas, papel) para evitar exceso de humedad.</value>
+  </data>
+  <data name="CreatividadOrganico" xml:space="preserve">
+    <value>Si no puedes acceder a un sistema de compostaje:
+
+Compost casero: Usa un espacio en tu jardín o una compostera en tu hogar para transformar los residuos en abono.
+Alimentación animal: Algunos restos, como cáscaras de frutas, pueden ser usados para alimentar animales de granja.
+Cultivo de lombrices: Usa lombrices para descomponer los residuos orgánicos y generar humus rico en nutrientes.</value>
+  </data>
+  <data name="CuriosidadesOrganico" xml:space="preserve">
+    <value>Los residuos orgánicos representan hasta el 50% de los desechos domésticos.
+El compost mejora la fertilidad del suelo, reduciendo la necesidad de fertilizantes químicos.
+Una tonelada de residuos orgánicos reciclados puede evitar la emisión de hasta 0.5 toneladas de CO₂ equivalente.</value>
+  </data>
+  <data name="CreatividadVidrio" xml:space="preserve">
+    <value>Si no tienes acceso a un sistema de reciclaje:
+
+Decoración: Convierte frascos en floreros o lámparas.
+Organización: Usa botellas o frascos como recipientes de cocina o almacenamiento.
+Construcción: Utiliza trozos de vidrio reciclado como elemento decorativo en paredes o mosaicos.</value>
+  </data>
+</root>

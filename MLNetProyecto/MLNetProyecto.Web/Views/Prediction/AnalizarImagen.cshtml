@@ -58,7 +58,7 @@
                     <h4 class="text-success">Clasificación</h4>
                     <p>@Model.PredictedLabelValue</p>
                     <h4 class="text-info">Probabilidad</h4>
-                    <p>@Model.Score?.Max()</p>
+                    <p>@((Model.Score?.Max() * 100)?.ToString("F2"))%</p>
                 </div>
             </div>
             @if (rekognitionLabels != null)
@@ -71,13 +71,18 @@
                             @if (i < rekognitionLabels.Count - 1)
                             {
                                 @rekognitionLabels[i].Name
+                                <text>(</text>
+                                @(rekognitionLabels[i].Confidence.ToString("F2"))
+                                <text>%)</text>
 
                                 <text>, </text>
                             }
                             else
                             {
                                 @rekognitionLabels[i].Name
-
+                                <text>(</text>
+                                @(rekognitionLabels[i].Confidence.ToString("F2"))
+                                <text>%)</text>
                                 <text>.</text>
                             }
                         </span>

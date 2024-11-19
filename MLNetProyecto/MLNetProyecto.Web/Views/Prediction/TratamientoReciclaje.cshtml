@@ -1,0 +1,17 @@
+﻿@model MLNetProyecto.Entidades.VM.TratamientoVM
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">@Model.Titulo</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h3 class="text-center">@Model.IntroduccionTitulo</h3>
+            <p class="text-left">@Html.Raw(Model.IntroduccionTexto.Replace("\n", "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"))</p>
+            <h3 class="text-center">@Model.RecicladoTitulo</h3>
+            <p class="text-left">@Html.Raw(Model.RecicladoTexto.Replace("\n", "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"))</p>
+            <h3 class="text-center">@Model.CreatividadTitulo</h3>
+            <p class="text-left">@Html.Raw(Model.CreatividadTexto.Replace("\n", "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"))</p>
+            <h3 class="text-center">@Model.CuriosidadesTitulo</h3>
+            <p class="text-left">@Html.Raw(Model.CuriosidadesTexto.Replace("\n", "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"))</p>
+        </div>
+    </div>
+</div>

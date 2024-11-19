@@ -7,6 +7,7 @@ using MLNetProyecto.Web.Areas.Identity.Data;
 using MLNetProyecto.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var connectionString = builder.Configuration.GetConnectionString("MLNetProyectoDbContextConnection") ?? throw new InvalidOperationException("Connection string 'MLNetProyectoDbContextConnection' not found.");
 
 builder.Services.AddDbContext<MlnetProyectoContext>(options =>
@@ -17,14 +18,14 @@ builder.Services.AddDbContext<MLNetProyectoDbContext>(options => options.UseSqlS
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<MLNetProyectoDbContext>();
 
 // Add services to the container.
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddScoped<MLContext>();
 builder.Services.AddScoped<MlnetProyectoContext>();
 builder.Services.AddScoped<MLNetProyectoDbContext>();
 builder.Services.AddScoped<IMLNetLogica, MLNetLogica>();
 builder.Services.AddRazorPages();
-
+builder.Services.AddSingleton<LocalizationService>();
 builder.Services.AddHttpClient<ApiService>();
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -35,6 +36,13 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 var app = builder.Build();
 
+var supportedCultures = new[] { "en" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture("en")
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
