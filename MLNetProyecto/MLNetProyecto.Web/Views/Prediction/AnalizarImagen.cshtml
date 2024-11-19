@@ -95,17 +95,17 @@
         <div>
             <!-- Botones -->
             <div class="d-flex justify-content-center mt-4 gap-3">
+                <form method="post" asp-action="CorregirElementoView">
+                    <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
+                    <input type="hidden" name="FileName" value="@Model.FileName" />
+                    <button type="submit" class="btn btn-danger px-4">No es Correcto</button>
+                </form>
                 <form method="post" asp-action="AgregarElemento">
                     <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
                     <input type="hidden" name="FileName" value="@Model.FileName" />
                     <input type="hidden" name="Score" value="@Model.Score?.Max()" />
                     <input type="hidden" name="PredictedLabelValue" value="@Model.PredictedLabelValue" />
                     <button type="submit" class="btn btn-success px-4">Es Correcto</button>
-                </form>
-                <form method="post" asp-action="CorregirElementoView">
-                    <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
-                    <input type="hidden" name="FileName" value="@Model.FileName" />
-                    <button type="submit" class="btn btn-warning px-4">No es Correcto</button>
                 </form>
             </div>
         </div>
